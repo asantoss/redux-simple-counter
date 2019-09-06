@@ -31,7 +31,6 @@ const reducer = (state = Object.assign({}, initialState), action) => {
             return state
             break;
         case 'ADD_COUNTER':
-            console.log(state)
             state.counters.push({
                 value: 0,
                 color: 'black'
