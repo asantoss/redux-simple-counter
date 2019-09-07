@@ -1,41 +1,34 @@
+
+//* The state
 const initialState = {
     counters: [{ value: 0, color: 'black' }]
 }
 
-const reducer = (state = Object.assign({}, initialState), action) => {
+const reducer = (state = { ...initialState }, action) => {
 
-    let { type, color, value, index } = action;
+    let { type, newColor, newValue, index } = action;
+    const { counters } = state
     switch (type) {
         case 'INCREMENT':
-            state.counters[index].value += 1
-            return state
+            return { ...state, ...state.counters[index].value += 1 }
             break;
         case 'DECREMENT':
-            state.counters[index].value -= 1
-            return state
+            return { ...state, ...state.counters[index].value -= 1 }
             break;
         case 'INCREMENT_BY_FIVE':
-            state.counters[index].value += 5
-            return state
+            return { ...state, ...state.counters[index].value += 5 }
             break;
         case 'DECREMENT_BY_FIVE':
-            state.counters[index].value -= 5
-            return state
+            return { ...state, ...state.counters[index].value -= 5 }
             break;
         case 'CHANGE_COLOR':
-            state.counters[index].color = color
-            return state
+            return { ...state, ...state.counters[index.color = newColor] }
             break;
         case 'CHANGE_NUM':
-            state.counters[index].value = value
-            return state
+            return { ...state, ...state.counters[index].value = newValue }
             break;
         case 'ADD_COUNTER':
-            state.counters.push({
-                value: 0,
-                color: 'black'
-            })
-            return state
+            return { ...state, counters: [...state.counters.concat({ value: 0, color: 'black' })] }
             break;
 
     }

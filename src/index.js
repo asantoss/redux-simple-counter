@@ -30,11 +30,11 @@ function decrementByFive(i) {
 }
 
 function colorSelect(i, value) {
-    dispatch({ type: "CHANGE_COLOR", color: value, index: i })
+    dispatch({ type: "CHANGE_COLOR", newColor: value, index: i })
 }
 
 function changeNumber(i, value) {
-    dispatch({ type: "CHANGE_NUM", value: Number(value), index: i })
+    dispatch({ type: "CHANGE_NUM", newValue: Number(value), index: i })
 }
 function addCounter() {
     dispatch({ type: "ADD_COUNTER" })
