@@ -12,6 +12,10 @@ window.onload = () => {
 }
 
 
+/* All event listeners are declared as functions.
+    This is due to the fact that the HTML wont be available until
+    the html is rendered. We add the event listeners inside of our markup.
+*/
 function increment(i) {
     dispatch({ type: "INCREMENT", index: i })
 }

@@ -6,10 +6,19 @@ const render = (state) => {
         return counterHTML(counter, i)
     }).join('')
 
+
+    /* 
+    * The code below changes the behavior of our forms & drop downs.
+    * We want to change the behavior of the submit on our changeNumber form.
+    * We also add an eventListener to the onchange on our dropdowns.
+    */
+
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.onsubmit = (e) => {
-            e.preventDefault()
+            e.preventDefault();
+            //* data-counterid is a custom attribute we are passing
+            //* in our render function to specify each counter by their index in our state.
             const index = form.getAttribute('data-counterid')
             changeNumber(index, form.elements.number.value)
         }
@@ -37,7 +46,7 @@ function counterHTML(counter, i) {
         <option value="blue">Blue</option>
         <option value="red">Red</option>
         <option value="green">Green</option>
-        <option value="yellow">yellow</option>
+        <option value="yellow">Yellow</option>
         <option value="black">Black</option>
         <option value="grey">Grey</option>
     </select>
